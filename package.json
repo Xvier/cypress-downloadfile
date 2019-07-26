@@ -1,0 +1,40 @@
+{
+  "name": "cypress-downloadfile",
+  "version": "0.1.1",
+  "description": "Cypress custom command to download files",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "copy:types": "babel types --out-dir lib --copy-files",
+    "build:all": "npm run build && npm run copy:types",
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xvier/cypress-downloadfile.git"
+  },
+  "keywords": [
+    "Cypress",
+    "downloading"
+  ],
+  "author": "Xviuda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Xvier/cypress-downloadfile/issues"
+  },
+  "homepage": "https://github.com/Xvier/cypress-downloadfile#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "cypress": "^3.4.0",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
+}

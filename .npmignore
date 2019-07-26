@@ -1,0 +1,5 @@
+src
+.prettierrc.js
+cypress.json
+cypress/
+.babelrc
