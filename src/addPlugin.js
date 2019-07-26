@@ -24,8 +24,3 @@ export function downloadFile(args) {
         });
     });
 }
-
-
-// export function downloadpdfPlugin(on) {
-//     on('task', { downloadPdf })
-// }
