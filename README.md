@@ -17,7 +17,7 @@ npm install cypress-downloadfile
 Add the following line to `cypress/support/commands.js`.
 
 ```javascript
-require('cypress-downloadfile/lib/DownloadFileCommand')
+require('cypress-downloadfile/lib/downloadFileCommand')
 ```
 
 Add the following lines to `cypress/plugins/index.js`.
