@@ -20,14 +20,15 @@ jobs:
   runtest:
     needs: build-npm
     runs-on: ubuntu-latest
+    container: cypress/browsers:chrome69
     steps:
         - uses: actions/checkout@v1
         - uses: actions/download-artifact@v1
           with:
             name: lib
-        - uses: cypress-io/github-action@v1
-        - uses: actions/upload-artifact@v1
-          if: failure()
+        - uses: actions/setup-node@v1
           with:
-            name: all
-            path: ./
+              node-version: 12
+              registry-url: https://registry.npmjs.org/
+        - run: npm ci
+        - run: npx cypress run
