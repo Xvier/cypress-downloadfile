@@ -13,6 +13,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build:all
+      - name: Display the path
+        run: ls -l -d ./*
       - run: npx cypress run
       - uses: actions/upload-artifact@v1
         with:
