@@ -9,13 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm run build:all
       - name: Cypress run
         uses: cypress-io/github-action@v1
+        with:
+          build: npm run build:all
 
   publish-npm:
     needs: build
