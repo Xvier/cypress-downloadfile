@@ -26,3 +26,8 @@ jobs:
           with:
             name: lib
         - uses: cypress-io/github-action@v1
+        - uses: actions/upload-artifact@v1
+          if: failure()
+          with:
+            name: all
+            path: ./
