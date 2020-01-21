@@ -13,7 +13,9 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm test
+      - run: build:all
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
 
   publish-npm:
     needs: build
