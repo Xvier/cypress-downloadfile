@@ -1,0 +1,19 @@
+name: Cypress-DownloadFile Package
+
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        uses: cypress-io/github-action@v1
+        with:
+            runTest: false
+      - run: npm run build:all
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+            install: false
+
+
