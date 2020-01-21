@@ -20,7 +20,7 @@ export function downloadFile(args) {
             const file = path.join(directory , fileName)
             
             fs.outputFileSync(file, body)
-            resolve(body);
+            resolve('downloadFile ' + file + ' downloaded');
         });
     });
 }
