@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: build:all
+      - run: npm run build:all
       - name: Cypress run
         uses: cypress-io/github-action@v1
 
@@ -27,7 +27,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: build:all
+      - run: npm run build:all
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
