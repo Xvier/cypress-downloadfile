@@ -9,11 +9,9 @@ jobs:
       - name: Install dependencies
         uses: cypress-io/github-action@v1
         with:
-            runTest: false
+            install: false
       - run: npm run build:all
       - name: Cypress run
         uses: cypress-io/github-action@v1
-        with:
-            install: false
 
 
