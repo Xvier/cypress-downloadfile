@@ -1,0 +1,27 @@
+name: Cypress-DownloadFile Test
+
+on: push
+
+jobs:
+  runbuild-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build:all
+      - uses: actions/upload-artifact@v1
+        with:
+            name: lib
+            path: lib
+  runtest:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v1
+        - uses: actions/download-artifact@v1
+          with:
+            name: lib
+          uses: cypress-io/github-action@v1
