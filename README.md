@@ -36,8 +36,13 @@ If autocompletion does not work out of the box you can add the following line ab
 ```
 
 
-## Example of command
+## Example of basic command 
 ```javascript
 cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf')
+```
+
+## In Version 1.5 you can now also pass in the User-Agent. If no User-Agent is passed it will give a default User-Agent called request.
+```javascript
+cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf','MyCustomAgentName')
 ```
 
