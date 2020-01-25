@@ -1,0 +1,20 @@
+name: Cypress-DownloadFile Test
+
+on: push
+jobs:
+  build-npm:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:chrome69
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build:all
+      - run: npx cypress run
+      - uses: actions/upload-artifact@v1
+        with:
+            name: videos
+            path: cypress/videos
