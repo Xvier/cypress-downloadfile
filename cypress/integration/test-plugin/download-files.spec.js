@@ -6,7 +6,8 @@ describe('Cypress Downloadfile Testing', () => {
         cy.downloadFile(
             'https://speed.hetzner.de/100MB.bin',
             'mydownloads',
-            '100MB.bin'
+            '100MB.bin',
+            'MyAgent'
         )
     })
     it('Small Size test', () => {
