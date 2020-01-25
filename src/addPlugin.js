@@ -4,13 +4,14 @@ const path = require('path')
 export function downloadFile(args) {
     const directory = args.directory
     const cookieHeader = args.cookies.map(e => e.name + '=' + e.value).join(';')
+    const userAgent = args.userAgent || 'request'
     const fileName = args.fileName
     return new Promise((resolve, reject) => {
         request(
             {
                 url: args.url,
                 encoding: null,
-                headers: { Cookie: cookieHeader },
+                headers: { Cookie: cookieHeader, 'User-Agent': userAgent },
             },
             function(err, res, body) {
                 if (!res) {

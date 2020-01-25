@@ -7,6 +7,6 @@ declare namespace Cypress {
        * @example
        * cy.downloadFile('http://demourl','example','demo.pdf')
        */
-      downloadFile(url: string, directory: string, filename:string): Chainable<any>
+      downloadFile(url: string, directory: string, filename:string, userAgent?:string): Chainable<any>
     }
   }
