@@ -2,16 +2,22 @@ const request = require('request')
 const fs = require('fs-extra')
 const path = require('path')
 export function downloadFile(args) {
+    var headers = args.headers
     const directory = args.directory
-    const cookieHeader = args.cookies.map(e => e.name + '=' + e.value).join(';')
-    const userAgent = args.userAgent || 'request'
+    if (! headers.Cookie){
+        const cookieHeader = args.cookies.map(e => e.name + '=' + e.value).join(';')
+        headers.Cookie = headers.Cookie || cookieHeader
+    }
+    
     const fileName = args.fileName
+    headers['User-Agent'] = headers['User-Agent'] || 'request'
+
     return new Promise((resolve, reject) => {
         request(
             {
                 url: args.url,
                 encoding: null,
-                headers: { Cookie: cookieHeader, 'User-Agent': userAgent },
+                headers: headers,
             },
             function(err, res, body) {
                 if (!res) {

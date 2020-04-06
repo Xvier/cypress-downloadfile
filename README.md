@@ -41,8 +41,17 @@ If autocompletion does not work out of the box you can add the following line ab
 cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf')
 ```
 
-## In Version 1.5 you can now also pass in the User-Agent. If no User-Agent is passed it will give a default User-Agent called request.
+## In Version 1.6 you can now also pass in the headers. If no User-Agent is defined in headers, it will give a default User-Agent called "request".
 ```javascript
-cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf','MyCustomAgentName')
+const token = '<my bearer token>'
+
+var headers = {
+  authorization: 'Bearer ' + token,
+  accept: 'application/json',
+  'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+  'User-Agent': 'a-specific-useragent'
+}
+
+cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf','MyCustomAgentName', headers)
 ```
 
