@@ -52,6 +52,6 @@ var headers = {
   'User-Agent': 'a-specific-useragent'
 }
 
-cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf','MyCustomAgentName', headers)
+cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf', headers)
 ```
 
