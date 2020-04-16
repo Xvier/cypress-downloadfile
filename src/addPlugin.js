@@ -17,11 +17,11 @@ export function downloadFile(args) {
         if (response.status !== 200) {
             throw new Error('Bad status code: ' + response.status)
         }
-        const file = path.join(directory, fileName)
-
-        return response.blob().then(body => {
-            fs.outputFileSync(file, body)
+        return response.arrayBuffer()
+    }).then(function(arrayBuffer){
+            const file = path.join(directory, fileName)
+            let myBuffer = new Uint8Array(arrayBuffer)
+            fs.outputFileSync(file, myBuffer)
             return 'downloadFile ' + file + ' downloaded'
-        })
     })
 }
