@@ -1,33 +1,27 @@
-const request = require('request')
+const fetch = require('cross-fetch')
 const fs = require('fs-extra')
 const path = require('path')
 export function downloadFile(args) {
     const directory = args.directory
     const cookieHeader = args.cookies.map(e => e.name + '=' + e.value).join(';')
-    const userAgent = args.userAgent || 'request'
+    const userAgent = args.userAgent || 'cross-fetch'
     const fileName = args.fileName
-    return new Promise((resolve, reject) => {
-        request(
-            {
-                url: args.url,
-                encoding: null,
-                headers: { Cookie: cookieHeader, 'User-Agent': userAgent },
-            },
-            function(err, res, body) {
-                if (!res) {
-                    return reject(new Error('No response'))
-                }
-                if (res.statusCode !== 200) {
-                    return reject(
-                        new Error('Bad status code: ' + res.statusCode)
-                    )
-                }
 
-                const file = path.join(directory, fileName)
+    return fetch(args.url, {
+        headers: { Cookie: cookieHeader, 'User-Agent': userAgent },
+    }).then(response => {
+        if (!response) {
+            throw new Error('No response')
+        }
 
-                fs.outputFileSync(file, body)
-                resolve('downloadFile ' + file + ' downloaded')
-            }
-        )
+        if (response.status !== 200) {
+            throw new Error('Bad status code: ' + response.status)
+        }
+        return response.arrayBuffer()
+    }).then(function(arrayBuffer){
+            const file = path.join(directory, fileName)
+            let myBuffer = new Uint8Array(arrayBuffer)
+            fs.outputFileSync(file, myBuffer)
+            return 'downloadFile ' + file + ' downloaded'
     })
 }

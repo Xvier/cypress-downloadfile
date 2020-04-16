@@ -38,11 +38,12 @@ If autocompletion does not work out of the box you can add the following line ab
 
 ## Example of basic command 
 ```javascript
-cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf')
+cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg')
 ```
 
-## In Version 1.5 you can now also pass in the User-Agent. If no User-Agent is passed it will give a default User-Agent called request.
+## In Version 1.1.5 you can now also pass in the User-Agent. If no User-Agent is passed it will give a default User-Agent called request.
 ```javascript
-cy.downloadFile('https://library.concordia.ca/help/technology/recovering_saved_files.pdf','mydownloads','demo.pdf','MyCustomAgentName')
+cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg','MyCustomAgentName')
 ```
-
+## Version 1.2.0
+Because request is deprecated we changed to cross-fetch. This works on Cypress 3.8.0 and upwards. If you notice problems please let me know
