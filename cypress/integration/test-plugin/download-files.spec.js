@@ -17,4 +17,20 @@ describe('Cypress Downloadfile Testing', () => {
             '10Mio.dat'
         )
     })
+    it('PDF test', () => {
+        cy.downloadFile(
+            'http://www.africau.edu/images/default/sample.pdf',
+            'mydownloads',
+            'sample.pdf'
+        )
+    })
+    it('Image Size test', () => {
+        cy.downloadFile(
+            'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg',
+            'mydownloads',
+            'example.jpg'
+        )
+    })
 })
+
+
