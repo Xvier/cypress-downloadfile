@@ -35,6 +35,7 @@
     "prettier": "^2.0.4"
   },
   "dependencies": {
+    "content-disposition": "^0.5.3",
     "cross-fetch": "^3.0.4",
     "fs-extra": "^9.0.0"
   }

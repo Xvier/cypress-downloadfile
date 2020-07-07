@@ -45,6 +45,22 @@ describe('Cypress Downloadfile Testing', () => {
             )
         )
     })
+    it('Defaults to the Content-Disposition attachment filename', () => {
+        createdFileSize('mydownloads/Universal_Declaration_of_Human_Rights.pdf', () =>
+            cy.downloadFile(
+                'https://en.wikisource.org/api/rest_v1/page/pdf/Universal_Declaration_of_Human_Rights',
+                'mydownloads',
+            )
+        )
+    })
+    it('Defaults to the last url path segment when there is no Content-Disposition attachment filename', () => {
+        createdFileSize('mydownloads/Wikipedia-logo-v2.png', () =>
+            cy.downloadFile(
+                'https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png',
+                'mydownloads',
+            )
+        )
+    })
 })
 
 
