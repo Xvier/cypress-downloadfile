@@ -12,6 +12,19 @@
 // the project's config changing)
 const { downloadFile } = require('../../lib/addPlugin')
 
+const fs = require('fs')
+
+function rm(path) {
+    if (fs.existsSync(path)) {
+        fs.unlinkSync(path)
+    }
+    return null
+}
+
+function fileSize(path) {
+    return fs.statSync(path).size
+}
+
 module.exports = (on, config) => {
-    on('task', { downloadFile })
+    on('task', { downloadFile, rm, fileSize })
 }
