@@ -4,7 +4,7 @@ describe('Cypress Downloadfile Testing', () => {
     it('Medium Size file', () => {
         cy.visit('http://proof.ovh.net/files/')
         cy.downloadFile(
-            'http://proof.ovh.net/files/100Mio.dat',
+            'https://proof.ovh.net/files/100Mb.dat',
             'mydownloads',
             '100Mio.dat',
             'MyAgent'
@@ -12,7 +12,7 @@ describe('Cypress Downloadfile Testing', () => {
     })
     it('Small Size test', () => {
         cy.downloadFile(
-            'http://proof.ovh.net/files/10Mio.dat',
+            'https://proof.ovh.net/files/10Mb.dat',
             'mydownloads',
             '10Mio.dat'
         )
