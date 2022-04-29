@@ -6,6 +6,8 @@ This is a Cypress custom file download command.
 
 This repository is not maintained by the Cypress developers. 
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/xav4)
+
 ## Installation
 
 Install the module.
