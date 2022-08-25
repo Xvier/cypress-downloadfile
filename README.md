@@ -22,6 +22,25 @@ Add the following line to `cypress/support/commands.js`.
 require('cypress-downloadfile/lib/downloadFileCommand')
 ```
 
+### For Cypress 10 and above 
+Add the following lines to `cypress.config.js`.
+```javascript
+const { defineConfig } = require('cypress')
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+
+module.exports = defineConfig({
+  // setupNodeEvents can be defined in either
+  // the e2e or component configuration
+  e2e: {
+    setupNodeEvents(on, config) {
+         on('task', {downloadFile})
+      })
+    }
+  }
+})
+```
+
+### For all Cypress versions below 10
 Add the following lines to `cypress/plugins/index.js`.
 
 ```javascript
