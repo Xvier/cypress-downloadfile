@@ -10,7 +10,7 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-const { downloadFile } = require('../../lib/addPlugin')
+const { downloadFile } = require('../../src/addPlugin')
 
 module.exports = (on, config) => {
     on('task', { downloadFile })

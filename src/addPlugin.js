@@ -1,14 +1,24 @@
 const fetch = require('cross-fetch')
 const fs = require('fs-extra')
 const path = require('path')
-export function downloadFile(args) {
+function downloadFile(args) {
     const directory = args.directory
     const cookieHeader = args.cookies.map(e => e.name + '=' + e.value).join(';')
     const userAgent = args.userAgent || 'cross-fetch'
     const fileName = args.fileName
 
+    if (args.headers) {
+        args.headers['Cookie'] = cookieHeader
+        args.headers['User-Agent'] = userAgent
+    } else {
+        args.headers = {
+            Cookie: cookieHeader,
+            'User-Agent': userAgent
+        }
+    }
+
     return fetch(args.url, {
-        headers: { Cookie: cookieHeader, 'User-Agent': userAgent },
+        headers: args.headers
     }).then(response => {
         if (!response) {
             throw new Error('No response')
@@ -24,4 +34,8 @@ export function downloadFile(args) {
             fs.outputFileSync(file, myBuffer)
             return 'downloadFile ' + file + ' downloaded'
     })
+}
+
+module.exports = {
+    downloadFile
 }
