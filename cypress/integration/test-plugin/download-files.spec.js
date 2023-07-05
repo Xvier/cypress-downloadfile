@@ -31,6 +31,18 @@ describe('Cypress Downloadfile Testing', () => {
             'example.jpg'
         )
     })
+
+    it('File download with custom headers', () => {
+        cy.downloadFile(
+            'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg',
+            'mydownloads',
+            'example2.jpg',
+            '',
+            {
+                Accept: 'image/jpeg'
+            }
+        )
+    })
 })
 
 

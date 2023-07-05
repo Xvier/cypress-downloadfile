@@ -1,4 +1,4 @@
-require('../../lib/downloadFileCommand')
+require('../../src/downloadFileCommand')
 
 // ***********************************************
 // This example commands.js shows you how to
