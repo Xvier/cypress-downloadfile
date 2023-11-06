@@ -1,8 +1,16 @@
 /// <reference types="cypress" />
 
 describe('Cypress Downloadfile Testing', () => {
+    it('Large Size file', () => {
+        cy.downloadFile(
+            'http://212.183.159.230/512MB.zip',
+            'mydownloads',
+            '512MB.zip',
+            "MyAgent",
+            { timeout: 600000 }
+        )
+    })
     it('Medium Size file', () => {
-        cy.visit('http://proof.ovh.net/files/')
         cy.downloadFile(
             'https://proof.ovh.net/files/100Mb.dat',
             'mydownloads',

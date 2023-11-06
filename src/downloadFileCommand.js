@@ -1,4 +1,4 @@
-Cypress.Commands.add('downloadFile', (url, dir, fileName, userAgent) => {
+Cypress.Commands.add('downloadFile', (url, dir, fileName, userAgent, { timeout } = {}) => {
     return cy.getCookies().then(cookies => {
         return cy.task('downloadFile', {
             url: url,
@@ -6,6 +6,6 @@ Cypress.Commands.add('downloadFile', (url, dir, fileName, userAgent) => {
             cookies: cookies,
             fileName: fileName,
             userAgent: userAgent,
-        })
+        }, { timeout })
     })
 })
