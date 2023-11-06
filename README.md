@@ -65,5 +65,10 @@ cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','my
 ```javascript
 cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg','MyCustomAgentName')
 ```
+
+## Example of using timeout
+```javascript
+cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg', "MyCustomAgentName", { timeout: 600000 })
+```
 ## Version 1.2.0
 Because request is deprecated we changed to cross-fetch. This works on Cypress 3.8.0 and upwards. If you notice problems please let me know
