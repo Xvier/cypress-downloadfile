@@ -19,7 +19,7 @@ describe('Cypress Downloadfile Testing', () => {
     })
     it('PDF test', () => {
         cy.downloadFile(
-            'http://www.africau.edu/images/default/sample.pdf',
+            'https://pdfobject.com/pdf/sample.pdf',
             'mydownloads',
             'sample.pdf'
         )
