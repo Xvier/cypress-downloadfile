@@ -3,7 +3,7 @@
 declare namespace Cypress {
     interface Chainable<Subject> {
       /**
-       * Create several Todo items via UI
+       * Command to download files with Cypress plugin
        * @example
        * cy.downloadFile('http://demourl','example','demo.pdf')
        */
