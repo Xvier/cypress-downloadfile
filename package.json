@@ -1,6 +1,6 @@
 {
   "name": "cypress-downloadfile",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Cypress custom command to download files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
